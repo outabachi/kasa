@@ -1,0 +1,19 @@
+.kasa-card {
+    width: 340px;
+    height: 340px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-bottom: 50px;
+
+    img {
+        width: 340px;
+        height: 340px;
+        border-radius: 10px;
+    }
+    h4{
+        position: relative;
+        bottom: 67px;
+        left: 5px;
+        color: white;
+    }
+}
