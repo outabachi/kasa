@@ -5,6 +5,7 @@ import './style/index.scss';
 import Accueil from './pages/accueil';
 import Header from './components/header';
 import Footer from './components/footer';
+import Apropos from './pages/apropos';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,7 @@ root.render(
     <Header />
       <Routes>
         <Route path="/" element={<Accueil />} />
+        <Route path="/apropos" element={<Apropos />} />
       </Routes>
       <Footer />
     </Router>
