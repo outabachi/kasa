@@ -1,4 +1,4 @@
-.kasa-banner2 {
+.kasa-banner {
     width: auto;
     height: 223px;
     margin-left: 100px;
@@ -10,6 +10,13 @@
         height: 100%;
         border-radius: 25px;
         filter : brightness(60%);
+    }
+    h1{
+        text-align: center;
+        color: white;
+        position: relative;
+        margin: 0;
+        top: -125px;
     }
 
 }

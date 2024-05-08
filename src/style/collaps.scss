@@ -6,4 +6,36 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    img{
+        cursor: pointer;
+    }
+    h2{
+        margin-left: 20px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}
+.kasa-collaps-text{
+    width: 1023px;
+    max-height: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F6F6F6;
+    display: none;
+    p{
+        padding: 10px;
+        margin: 0;
+    }
+}
+.rotate {
+    transform: rotate(180deg);
+    transition-duration: 0.3s;
+}
+.active {
+    max-height: 1000px;
+    transition-duration: 0.5s;
+    display: flex;
 }
