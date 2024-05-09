@@ -6,6 +6,8 @@ import Accueil from './pages/accueil';
 import Header from './components/header';
 import Footer from './components/footer';
 import Apropos from './pages/apropos';
+import Fichelogement from './pages/fichelogement';
+import Notfound from './pages/404';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +17,8 @@ root.render(
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/apropos" element={<Apropos />} />
+        <Route path="/fichelogement" element={<Fichelogement />} />
+        <Route path="*" element={<Notfound />} />
       </Routes>
       <Footer />
     </Router>

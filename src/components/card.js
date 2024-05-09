@@ -12,7 +12,7 @@ function Card() {
 
     })
     return cards.map((card, index) => (
-        <Link to="/pages/fichelogement" className="kasa-card" key={index}>
+        <Link to="/fichelogement" className="kasa-card" key={index}>
             <img src={card.cover} alt={card.title} />
             <h4>{card.title}</h4>
         </Link>
