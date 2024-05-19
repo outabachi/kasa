@@ -18,3 +18,11 @@
         max-width: 330px;
     }
 }
+@media (max-width: 400px) {
+    .kasa-card{
+        width: 290px;
+        img{
+            width: 290px; 
+        }
+    }
+}
