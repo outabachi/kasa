@@ -10,9 +10,12 @@ function Card() {
             .then(response => response.json())
             .then((cards) => setCards(cards))
 
-    })
+    }, [])
     return cards.map((card, index) => (
-        <Link to="/fichelogement" className="kasa-card" key={index}>
+        <Link to="/fichelogement" className="kasa-card" key={index} onClick={() => {
+            localStorage.clear();
+            localStorage.setItem('card', JSON.stringify(card));
+        }}>
             <img src={card.cover} alt={card.title} />
             <h4>{card.title}</h4>
         </Link>
