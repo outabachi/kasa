@@ -2,8 +2,9 @@ import '../style/fichelogement.scss';
 import chevron from '../assets/chevron.png'
 import star from '../assets/star.png'
 import Collaps from '../components/collaps';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 function Fichelogement() {
+    const [indexActive, setindexActive] = useState(0);
     useEffect(() => {
         Caroussel();
         Rating();
@@ -19,6 +20,7 @@ function Fichelogement() {
                         if (newIndex < 0) newIndex = [...slides].length - 1;
                         slideActive.classList.remove("active");
                         slides[newIndex].classList.add("active");
+                        setindexActive(newIndex);
 
                     }} />
                     <img src={chevron} alt='chevron' id='next' onClick={() => {
@@ -28,11 +30,23 @@ function Fichelogement() {
                         if (newIndex > ([...slides].length - 1)) newIndex = 0;
                         slideActive.classList.remove("active");
                         slides[newIndex].classList.add("active");
+                        setindexActive(newIndex);
                     }} />
                 </div>
                 {JSON.parse(localStorage.getItem('card')).pictures.map((picture, index) => (
                     <img className='img-logement' key={index} src={picture} alt={`image ${index}`} id={index + 1} />
                 ))}
+                <div className='numero'>
+                    <p>
+                        {(indexActive + 1)}
+                    </p>
+                    <p>
+                        /
+                    </p>
+                    <p>
+                        {((JSON.parse(localStorage.getItem('card')).pictures).length)}
+                    </p>
+                </div>
             </div>
             <div className='aside-fichelogement'>
                 <div className='div-titre-loc-tag'>
@@ -80,6 +94,7 @@ function Fichelogement() {
 
 }
 function Caroussel() {
+    const numero = document.querySelector('.numero');
     const slide1 = document.getElementById('1');
     const slides = document.querySelectorAll(".img-logement");
     const next = document.getElementById('next');
@@ -88,6 +103,7 @@ function Caroussel() {
     if ([...slides].length == 1) {
         next.classList.add("desactive");
         prev.classList.add("desactive");
+        numero.classList.add("numdesactive");
     }
 }
 function Rating() {

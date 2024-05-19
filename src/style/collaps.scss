@@ -1,10 +1,9 @@
 .kasa-collaps {
-    width: 1023px;
     height: 54px;
     border-radius: 5px;
     background-color: #FF6060;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left:10vw;
+    margin-right: 10vw;
     margin-top: 50px;
     display: flex;
     justify-content: space-between;
@@ -19,10 +18,9 @@
     }
 }
 .kasa-collaps-text{
-    width: 1023px;
     max-height: 0px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left:10vw;
+    margin-right: 10vw;
     background-color: #F6F6F6;
     display: none;
     p{

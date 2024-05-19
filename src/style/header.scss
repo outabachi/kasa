@@ -1,19 +1,21 @@
 .kasa-header {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 8vw;
+    margin-right: 8vw;
     margin-top: 50px;
     display: flex;
     justify-content: space-between;
     nav{
         padding-top: 25px;
         a{
-            padding-left: 57px;
+            padding-left: 50px;
+            font-weight: 500;
+            color: black;
         }
     }
     
 }
 
 .kasa-logo {
-    width: 210.32px;
+    width: 17vw;
     height: 68px;
 }

@@ -1,8 +1,8 @@
 .kasa-banner-logement {
     height: 415px;
     border-radius: 25px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 8vw;
+    margin-right: 8vw;
     margin-top: 50px;
     position: relative;
 }
@@ -41,11 +41,13 @@
 .kasa-collaps-logement {
     display: flex;
     justify-content: space-between;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 8vw;
+    margin-right: 8vw;
+    margin-top: 20px;
 
     .kasa-collaps {
-        width: 40vw;
+        width: 39vw;
+        margin: 0;
         h2{
             font-size: 18px;
             font-weight: 700;
@@ -53,7 +55,8 @@
     }
 
     .kasa-collaps-text {
-        width: 40vw;
+        width: 39vw;
+        margin: 0;
     }
 }
 
@@ -66,8 +69,8 @@
 }
 
 .aside-fichelogement {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 8vw;
+    margin-right: 8vw;
     display: flex;
     justify-content: space-between;
 
@@ -112,15 +115,13 @@
 
 .div-agent-star {
     margin-top: 20.750px;
-    width: 167px;
     p {
         color: #FF6060;
-        width: 93px;
         margin-top: 0;
+        width: 70px;
     }
 
     img {
-        width: 64px;
         height: 64px;
         border-radius: 50%;
 
@@ -137,3 +138,37 @@
         height: 36px;
     }
 }
+.numero{
+    position: absolute;
+    bottom: 0;
+    z-index: 1000;
+    display: flex;
+    left: 50%;
+    right: 50%;
+    p{
+        color: white;
+    }
+}
+.numdesactive{
+    position: relative;
+}
+@media (max-width: 700px) {
+    .aside-fichelogement{
+        display: block;
+    }
+    .div-agent-star{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+    .kasa-collaps-logement {
+       
+    
+        .kasa-collaps {
+            
+            h2{
+                font-size: 15px;
+                font-weight: 700;
+            }
+        }
+}}
