@@ -56,7 +56,7 @@ function Fichelogement() {
                         }} />
                         <img src={chevron} alt='chevron' id='next' onClick={() => {
                             let newIndex = indexActive + 1;
-                            if (newIndex >= logement.pictures.length) newIndex = logement.pictures.length + 1;
+                            if (newIndex >= logement.pictures.length) newIndex = 0;
                             setindexActive(newIndex);
                         }} />
                     </div>
