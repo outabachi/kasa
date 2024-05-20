@@ -22,7 +22,7 @@
     margin-left:10vw;
     margin-right: 10vw;
     background-color: #F6F6F6;
-    display: none;
+    overflow: hidden;
     p{
         padding: 10px;
         margin: 0;
@@ -34,6 +34,5 @@
 }
 .active {
     max-height: 1000px;
-    transition-duration: 0.5s;
-    display: flex;
+    transition: 3s;
 }

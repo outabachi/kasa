@@ -151,6 +151,7 @@
 }
 .numdesactive{
     position: relative;
+    opacity: 0;
 }
 @media (max-width: 700px) {
     .aside-fichelogement{
@@ -162,13 +163,16 @@
         flex-direction: row-reverse;
     }
     .kasa-collaps-logement {
-       
-    
+       display: block;
         .kasa-collaps {
-            
+            width: 100%;
+            margin-top: 20px;
             h2{
                 font-size: 10px;
                 font-weight: 700;
             }
+        }
+        .kasa-collaps-text {
+            width: 100%;
         }
 }}
