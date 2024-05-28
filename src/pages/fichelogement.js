@@ -2,68 +2,53 @@ import '../style/fichelogement.scss';
 import chevron from '../assets/chevron.png'
 import Collaps from '../components/collaps';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 function Fichelogement() {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [logement, setLogement] = useState(null);
     const [indexActive, setindexActive] = useState(0);
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         fetch(`/data/logements.json`)
             .then(response => response.json())
             .then((data) => {
                 const foundLogement = data.find((logement) => logement.id === id);
-                setLogement(foundLogement);
+                if (!foundLogement) {
+                    navigate('/notfound');
+                    setLoading(false);
+                } else {
+                    setLogement(foundLogement);
+                    setLoading(false);
+                    
+                }
             });
-    }, [id]);
-    useEffect(() => {
-        if (logement) {
-            function Caroussel() {
-                const numero = document.querySelector('.numero');
-                const next = document.getElementById('next');
-                const prev = document.getElementById('prev');
+        
+    }, [id, navigate]);
 
-                if (logement.pictures.length == 1) {
-                    next.classList.add("desactive");
-                    prev.classList.add("desactive");
-                    numero.classList.add("numdesactive");
-                }
-            }
-            Caroussel();
-            function Rating() {
-                const rat = logement.rating
-                const stars = document.querySelectorAll('.fa-star');
-                for (let i = 0; i < rat; i++) {
-                    if (stars[i]) {
-                        stars[i].classList.add('star');
-                    }
-                }
-            }
-            Rating();
-        }
+    const handleNext = () => {
+        setindexActive((prevIndex) => (prevIndex + 1) % logement.pictures.length);
+    };
 
-    }, [logement]);
-    if (logement) {
+    const handlePrev = () => {
+        setindexActive((prevIndex) => (prevIndex - 1 + logement.pictures.length) % logement.pictures.length);
+    };
+
+    if (loading) {
+        return <div></div>;
+    }
 
         return (
             <div className='kasa-fichelogement'>
                 <div className='kasa-banner-logement'>
                     <div className='chevron'>
-                        <img src={chevron} alt='chevron' id='prev' onClick={() => {
-                            let newIndex = indexActive - 1;
-                            if (newIndex < 0) newIndex = logement.pictures.length - 1;
-                            setindexActive(newIndex);
-
-                        }} />
-                        <img src={chevron} alt='chevron' id='next' onClick={() => {
-                            let newIndex = indexActive + 1;
-                            if (newIndex >= logement.pictures.length) newIndex = 0;
-                            setindexActive(newIndex);
-                        }} />
+                        <img src={chevron} alt='chevron' id='prev' className={logement.pictures.length === 1 ? 'desactive' : ''} onClick={handlePrev} />
+                        <img src={chevron} alt='chevron' id='next' className={logement.pictures.length === 1 ? 'desactive' : ''} onClick={handleNext} />
                     </div>
                     {logement.pictures.map((picture, index) => (
                         <img className={`img-logement ${index === indexActive ? 'active' : ''}`} key={index} src={picture} alt={`image ${index}`} id={index + 1} />
                     ))}
-                    <div className='numero'>
+                    <div className={`numero ${logement.pictures.length === 1 ? 'numdesactive' : ''}`}>
                         <p>
                             {(indexActive + 1)}
                         </p>
@@ -95,11 +80,11 @@ function Fichelogement() {
                             <img src={logement.host.picture} />
                         </div>
                         <div className='div-star'>
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
+                            <i className={`fas fa-star ${0 < logement.rating ? 'star' : ''}`}></i>
+                            <i className={`fas fa-star ${1 < logement.rating ? 'star' : ''}`}></i>
+                            <i className={`fas fa-star ${2 < logement.rating ? 'star' : ''}`}></i>
+                            <i className={`fas fa-star ${3 < logement.rating ? 'star' : ''}`}></i>
+                            <i className={`fas fa-star ${4 < logement.rating ? 'star' : ''}`}></i>
                         </div>
                     </div>
                 </div>
@@ -119,7 +104,7 @@ function Fichelogement() {
 
         );
     }
-}
+
 
 
 
